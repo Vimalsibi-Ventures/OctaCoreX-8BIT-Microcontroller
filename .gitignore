@@ -1,0 +1,23 @@
+# 1. GHDL Compiler Artifacts
+*.cf
+*.o
+*.obj
+work-obj*.cf
+tb_risc_core
+# 2. Simulation Dumps
+*.vcd
+*.ghw
+sim/
+
+# 3. macOS System Junk
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# 4. VS Code Workspaces
+.vscode/
+*.swp
