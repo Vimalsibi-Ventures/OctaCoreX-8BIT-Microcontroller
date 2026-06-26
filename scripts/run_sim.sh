@@ -24,9 +24,9 @@ ghdl -a --std=08 tb/tb_risc_core.vhd
 ghdl -e --std=08 tb_risc_core
 
 # 4. Execute Simulation and Generate Waveform
-# (Dumps the VCD into the ignored sim/ folder)
+# (Increased stop-time to 500ns to allow the exhaustive testbench to finish)
 echo " Running Simulation..."
-ghdl -r --std=08 tb_risc_core --vcd=sim/wave_core.vcd --stop-time=300ns
+ghdl -r --std=08 tb_risc_core --vcd=sim/wave_core.vcd --stop-time=500ns
 
 echo "=========================================="
 echo " Simulation Complete! Open sim/wave_core.vcd in VS Code."
