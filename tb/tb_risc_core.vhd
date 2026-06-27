@@ -137,15 +137,19 @@ begin
     -- =========================================================================
     -- Active Bus Monitor (Verification Process)
     -- =========================================================================
-    check_proc: process(monitor_result)
+    check_proc: process
     begin
         -- We expect the final valid instruction (ADDI R4, 0x05) to push 
         -- the value 0x15 (Decimal 21) onto the Write-Back bus.
-        if monitor_result = x"15" then
-            report "[PASS] OctaCoreX Exhaustive Verification Successful!" severity note;
-            -- Instantly and cleanly halt the simulation upon success
-            finish; 
-        end if;
+        wait until monitor_result = x"15";
+        
+        report "[PASS] OctaCoreX Exhaustive Verification Successful!" severity note;
+        
+        -- Let the simulation run for 20 more nanoseconds so the viewer draws the '15'
+        wait for 20 ns; 
+        
+        -- Cleanly halt the simulation
+        finish; 
     end process;
 
 end Behavioral;
